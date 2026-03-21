@@ -1,0 +1,117 @@
+# -------------------------------
+# Variable Declaration
+# -------------------------------
+a = 10
+b = 20
+sum_result = a + b
+print("Sum =", sum_result)
+
+
+# -------------------------------
+# Typecasting
+# -------------------------------
+a = "10"
+print(type(a))
+
+b = "20"
+print(type(b))
+
+c = int(a) + int(b)
+print("After typecasting:", c)
+
+
+# -------------------------------
+# User Input and Addition
+# -------------------------------
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = a + b
+
+print("a =", a)
+print("b =", b)
+print("Sum =", c)
+
+
+# -------------------------------
+# Find Current Age
+# -------------------------------
+birth_year = int(input("Enter your birth year: "))
+current_year = int(input("Enter current year: "))
+
+age = current_year - birth_year
+print("Your age is:", age)
+
+
+# -------------------------------
+# Convert Minutes to Hours
+# -------------------------------
+minutes = float(input("Enter minutes: "))
+hours = minutes / 60
+
+print("Hours:", hours)
+
+
+# -------------------------------
+# Convert Kilometers to Meters
+# -------------------------------
+km = float(input("Enter kilometers: "))
+meters = km * 1000
+
+print("Meters:", meters)
+
+
+# -------------------------------
+# Find Square and Cube
+# -------------------------------
+num = 10
+
+square = num * num
+cube = num * num * num
+
+print("Square:", square)
+print("Cube:", cube)
+
+
+# -------------------------------
+# Calculate Simple Interest
+# -------------------------------
+P = float(input("Enter Principal amount: "))
+R = float(input("Enter Rate of interest: "))
+T = float(input("Enter Time (years): "))
+
+SI = (P * R * T) / 100
+print("Simple Interest is:", SI)
+
+
+# -------------------------------
+# Area of a Circle
+# -------------------------------
+import math
+
+r = float(input("Enter radius: "))
+area_circle = math.pi * r * r
+
+print("Area of circle:", area_circle)
+
+
+# -------------------------------
+# Area of a Rectangle
+# -------------------------------
+length = float(input("Enter length: "))
+width = float(input("Enter width: "))
+
+area_rectangle = length * width
+print("Area of rectangle:", area_rectangle)
+
+
+# -------------------------------
+# Even or Odd Number Check
+# -------------------------------
+print("HELLO WORLD")
+
+number = 5
+
+if number % 2 == 0:
+    print("Even number")
+else:
+    print("Odd number")
