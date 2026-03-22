@@ -1,0 +1,119 @@
+# ==============================
+# Basic Python Programs
+# ==============================
+
+# 1. Find Largest Number
+def find_largest():
+    a, b, c = 10, 20, 30
+
+    if a >= b and a >= c:
+        print("a is largest")
+    elif b >= a and b >= c:
+        print("b is largest")
+    else:
+        print("c is largest")
+
+    print("Using max():", max(a, b, c))
+
+
+# 2. Check Positive or Negative
+def check_number():
+    number = 5
+
+    if number > 0:
+        print("Positive")
+    elif number < 0:
+        print("Negative")
+    else:
+        print("Zero")
+
+
+# 3. Sum of First N Natural Numbers
+def sum_natural_numbers(n=10):
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+
+    print("Sum:", total)
+
+
+# 4. Factorial
+def factorial_number(n=5):
+    factorial = 1
+
+    for i in range(1, n + 1):
+        factorial *= i
+
+    print("Factorial:", factorial)
+
+
+# 5. Multiplication Tables (1–20)
+def multiplication_tables():
+    for i in range(1, 21):
+        print(f"\nTable of {i}")
+        for j in range(1, 11):
+            print(f"{i} x {j} = {i*j}")
+
+
+# 6. Fibonacci Series
+def fibonacci_series(n):
+    a, b = 0, 1
+    print("Fibonacci Series:")
+
+    for _ in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+    print()
+
+
+# 7. Armstrong Number
+def check_armstrong(num):
+    total = 0
+    temp = num
+    digits = len(str(num))
+
+    while temp > 0:
+        digit = temp % 10
+        total += digit ** digits
+        temp //= 10
+
+    if num == total:
+        print("Armstrong Number")
+    else:
+        print("Not an Armstrong Number")
+
+
+# 8. Prime Number
+def check_prime(num):
+    if num > 1:
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                print("Not a Prime Number")
+                return
+        print("Prime Number")
+    else:
+        print("Not a Prime Number")
+
+
+# 9. Palindrome Check
+def check_palindrome(value):
+    if value == value[::-1]:
+        print("Palindrome")
+    else:
+        print("Not a Palindrome")
+
+
+# ==============================
+# Main Function
+# ==============================
+if __name__ == "__main__":
+    find_largest()
+    check_number()
+    sum_natural_numbers()
+    factorial_number()
+    multiplication_tables()
+
+    fibonacci_series(10)
+    check_armstrong(153)
+    check_prime(7)
+    check_palindrome("madam")
