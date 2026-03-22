@@ -1,0 +1,99 @@
+# ======================================
+# Day 5: File Handling + Exception Handling
+# Simple Student Record System
+# ======================================
+
+FILE_NAME = "students.txt"
+
+
+# Add Student Record
+def add_student():
+    try:
+        name = input("Enter student name: ")
+        age = input("Enter student age: ")
+
+        with open(FILE_NAME, "a") as file:
+            file.write(f"{name},{age}\n")
+
+        print("Student added successfully!")
+
+    except Exception as e:
+        print("Error:", e)
+
+
+# View All Students
+def view_students():
+    try:
+        with open(FILE_NAME, "r") as file:
+            data = file.readlines()
+
+            if not data:
+                print("No records found.")
+                return
+
+            print("\n--- Student Records ---")
+            for line in data:
+                name, age = line.strip().split(",")
+                print(f"Name: {name}, Age: {age}")
+
+    except FileNotFoundError:
+        print("File not found. No records yet.")
+    except Exception as e:
+        print("Error:", e)
+
+
+# Search Student
+def search_student():
+    try:
+        search_name = input("Enter name to search: ")
+
+        with open(FILE_NAME, "r") as file:
+            found = False
+
+            for line in file:
+                name, age = line.strip().split(",")
+                if name.lower() == search_name.lower():
+                    print(f"Found -> Name: {name}, Age: {age}")
+                    found = True
+                    break
+
+            if not found:
+                print("Student not found.")
+
+    except FileNotFoundError:
+        print("File not found.")
+    except Exception as e:
+        print("Error:", e)
+
+
+# ======================================
+# Main Menu
+# ======================================
+def main():
+    while True:
+        print("\n===== Student Management System =====")
+        print("1. Add Student")
+        print("2. View Students")
+        print("3. Search Student")
+        print("4. Exit")
+
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            add_student()
+        elif choice == "2":
+            view_students()
+        elif choice == "3":
+            search_student()
+        elif choice == "4":
+            print("Exiting program...")
+            break
+        else:
+            print("Invalid choice, try again!")
+
+
+# ======================================
+# Run Program
+# ======================================
+if __name__ == "__main__":
+    main()
