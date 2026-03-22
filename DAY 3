@@ -1,0 +1,69 @@
+# ======================================
+# Weird / Not Weird Problem (3 Approaches)
+# ======================================
+
+def weird_approach_1(n):
+    if n % 2 != 0:
+        print("Weird")
+    elif n % 2 == 0 and 2 <= n <= 5:
+        print("Not Weird")
+    elif n % 2 == 0 and 6 <= n <= 20:
+        print("Weird")
+    else:
+        print("Not Weird")
+
+
+def weird_approach_2(n):
+    if n % 2 == 1 or n in range(6, 21):
+        print("Weird")
+    else:
+        print("Not Weird")
+
+
+def weird_approach_3(n):
+    if n % 2 != 0:
+        print("Weird")
+        return
+
+    if 2 <= n <= 5:
+        print("Not Weird")
+    elif 6 <= n <= 20:
+        print("Weird")
+    else:
+        print("Not Weird")
+
+
+# ======================================
+# Leap Year (2 Approaches)
+# ======================================
+
+def is_leap_1(year):
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    if year % 4 == 0:
+        return True
+    return False
+
+
+def is_leap_2(year):
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+
+# ======================================
+# Main Execution
+# ======================================
+if __name__ == "__main__":
+    n = int(input("Enter a number: "))
+
+    print("\n--- Weird Check ---")
+    weird_approach_1(n)
+    weird_approach_2(n)
+    weird_approach_3(n)
+
+    year = int(input("\nEnter a year: "))
+
+    print("\n--- Leap Year Check ---")
+    print("Approach 1:", is_leap_1(year))
+    print("Approach 2:", is_leap_2(year))
