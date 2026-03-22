@@ -1,0 +1,153 @@
+# ======================================
+# Linked List Implementation + DSA Problems
+# ======================================
+
+# Node Class
+class Node:
+    def __init__(self, info):
+        self.info = info
+        self.link = None
+
+
+# ======================================
+# Linked List Operations
+# ======================================
+class LinkedList:
+    def __init__(self):
+        self.start = None
+
+    # Insert at end
+    def insert(self):
+        info = int(input("Enter any number: "))
+        temp = Node(info)
+
+        if self.start is None:
+            self.start = temp
+        else:
+            t = self.start
+            while t.link is not None:
+                t = t.link
+            t.link = temp
+
+        print("Node inserted.")
+
+    # Delete from beginning
+    def delete_node(self):
+        if self.start is None:
+            print("List is empty")
+        else:
+            self.start = self.start.link
+            print("Node deleted.")
+
+    # Print list
+    def print_list(self):
+        if self.start is None:
+            print("List is empty")
+        else:
+            t = self.start
+            while t is not None:
+                print(t.info, end=" -> ")
+                t = t.link
+            print("None")
+
+    # Menu
+    def menu(self):
+        print("\n1. Add")
+        print("2. Delete")
+        print("3. Print")
+        print("4. Exit")
+        return int(input("Enter your choice: "))
+
+    # Run program
+    def run(self):
+        while True:
+            choice = self.menu()
+
+            if choice == 1:
+                self.insert()
+            elif choice == 2:
+                self.delete_node()
+            elif choice == 3:
+                self.print_list()
+            elif choice == 4:
+                print("Exiting...")
+                break
+            else:
+                print("Invalid choice!")
+
+
+# ======================================
+# DSA: Reverse Linked List
+# ======================================
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class ReverseSolution:
+    def reverseList(self, head):
+        previous = None
+        current = head
+
+        while current is not None:
+            nxt = current.next
+            current.next = previous
+            previous = current
+            current = nxt
+
+        return previous
+
+
+# ======================================
+# DSA: Detect Cycle (Floyd’s Algorithm)
+# ======================================
+class CycleDetection:
+    def hasCycle(self, head):
+        slow = head
+        fast = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return True
+
+        return False
+
+
+# ======================================
+# DSA: Find Start of Cycle
+# ======================================
+class DetectCycleStart:
+    def detectCycle(self, head):
+        slow = head
+        fast = head
+
+        # Step 1: Detect cycle
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                break
+        else:
+            return None  # No cycle
+
+        # Step 2: Find start node
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+
+        return slow
+
+
+# ======================================
+# Main Execution
+# ======================================
+if __name__ == "__main__":
+    print("=== Linked List Menu Program ===")
+    l1 = LinkedList()
+    l1.run()
