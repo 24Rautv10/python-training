@@ -1,0 +1,35 @@
+# collection datatype
+# list []
+# tuple ()
+# set {}
+# dictionary {key:value} {st_name:xyz}
+# to store data studentmanagement system
+# student data student records
+
+list=[1,2,3,4,5]
+print(list)
+print(type(list))
+
+a=(1,2,3,4,5)
+print(a)
+print(type(a))
+
+set1={2,6,8,9,7,5}
+print(set1)
+print(type(set1))
+
+dictionary={"name":"Kunal","age":20}
+print(dictionary)
+print(type(dictionary))
+
+
+# list function:
+
+list=[1,2,3,4,5]
+# to add the data at last index
+list.append(10)
+print(list)
+# insert function
+# list.insert(indexposition,value)
+list.insert(1,20)
+print(list)
