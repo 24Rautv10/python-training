@@ -1,0 +1,118 @@
+# ======================================
+# Functions and Searching Algorithms
+# ======================================
+
+# 1. Simple Function
+def add():
+    a = 10
+    b = 20
+    c = a + b
+    print("Sum:", c)
+
+
+# 2. Function with Arguments
+def addition(a, b):
+    x = a + b
+    print("Addition =", x)
+
+
+# 3. Function with Return
+def addition2(a, b):
+    return a + b
+
+
+# ======================================
+# List Search (Linear Search using 'in')
+# ======================================
+def linear_search_example():
+    numbers = [10, 20, 30, 40, 50]
+    target = 30
+
+    if target in numbers:
+        print("Found at index:", numbers.index(target))
+    else:
+        print("Not found")
+
+
+# ======================================
+# Binary Search
+# ======================================
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+
+# ======================================
+# Missing Number (LeetCode Problem)
+# ======================================
+class MissingNumberSolution:
+    def missing_number(self, nums):
+        nums.sort()
+        for i in range(len(nums)):
+            if nums[i] != i:
+                return i
+        return len(nums)
+
+
+# ======================================
+# Binary Search (LeetCode 704)
+# ======================================
+class BinarySearchSolution:
+    def search(self, nums, target):
+        low = 0
+        high = len(nums) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+        return -1
+
+
+# ======================================
+# Main Execution
+# ======================================
+if __name__ == "__main__":
+    print("=== Functions ===")
+    add()
+    addition(10, 30)
+    print("Addition with return:", addition2(50, 60))
+
+    print("\n=== Linear Search ===")
+    linear_search_example()
+
+    print("\n=== Binary Search ===")
+    arr = [10, 20, 30, 40, 50]
+    target = 40
+    result = binary_search(arr, target)
+
+    if result != -1:
+        print(f"Element found at index {result}")
+    else:
+        print("Element not found")
+
+    print("\n=== Missing Number ===")
+    obj1 = MissingNumberSolution()
+    print("Missing number:", obj1.missing_number([3, 0, 1]))
+
+    print("\n=== LeetCode Binary Search ===")
+    obj2 = BinarySearchSolution()
+    print("Search result:", obj2.search([1, 2, 3, 4, 5], 4))
